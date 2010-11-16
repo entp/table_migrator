@@ -133,6 +133,7 @@ module TableMigrator
     end
 
     def full_delta_copy
+      self.flop_epoch
       epoch = self.last_epoch
       info_with_time "Copying delta from #{table_name} to #{new_table_name}" do
         execute(full_delta_copy_query(epoch))
